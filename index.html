@@ -3,28 +3,45 @@
     <head>
         <meta charset="UTF-8">
         <title>TOP Calc-Ulator</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     
     <body>
-        <h3>CALCULATOR</h3>
-        <label id="display">0000000</label>
-        <button id="btnZero">0</button>
-        <button id="btnOne">1</button>
-        <button id="btnTwo">2</button>
-        <button id="btnThree">3</button>
-        <button id="btnFour">4</button>
-        <button id="btnFive">5</button>
-        <button id="btnSix">6</button>
-        <button id="btnSeven">7</button>
-        <button id="btnEight">8</button>
-        <button id="btnNine">9</button>
-        <button id="btnDivide">/</button>
-        <button id="btnMultiply">*</button>
-        <button id="btnSubstract">-</button>
-        <button id="btnAdd">+</button>
-        <button id="btnComma">.</button>
-        <button id="btnClear">AC</button>
-        <button id="btnEqual">=</button>
+        <div id="container">
+            <div id="displayContainer">
+                <div id="cuentaContainer"><label id="cuenta">0000000</label></div>
+                <div id="resultadoContainer"><label id="resultado">0000000</label></div>
+            </div>
+                
+            <div id="buttonsContainer">
+                <div class="firstRowOperator">
+                    <button id="btnClear">AC</button>
+                    <button id="btnDivide">/</button>
+                    <button id="btnMultiply">*</button>
+                    <button id="btnSubstract">-</button>
+                </div>
+                <div class="anotherContainer">
+
+                    <div class="numberContainer">
+                        <button id="btnNine">9</button>
+                        <button id="btnEight">8</button>
+                        <button id="btnSeven">7</button>
+                        <button id="btnSix">6</button>
+                        <button id="btnFive">5</button>
+                        <button id="btnFour">4</button>
+                        <button id="btnThree">3</button>
+                        <button id="btnTwo">2</button>
+                        <button id="btnOne">1</button>
+                        <button id="btnZero">0</button>
+                        <button id="btnComma">.</button>
+                    </div><div class="operatorContainer">
+                        <button id="btnAdd">+</button>
+                        <button id="btnEqual">=</button>
+                    </div> 
+                </div>
+                
+            </div>
+        </div>
     </body>
     
     <script src="./script.js"></script>
