@@ -1,18 +1,18 @@
 function add (a, b) {
-    return (a + b);
+    return Math.round((a + b) * 100) / 100;
 }
 
 function substract(a, b) {
-    return (a - b);
+    return Math.round((a - b) * 100) / 100;
 }
 
 function multiply(a, b) {
-    return (a * b);
+    return Math.round((a * b) * 100) / 100;
 }
 
 function divide(a, b) {
     if(b === 0) return 'What???';
-    return (a / b);
+    return Math.round((a / b) * 100) / 100;
 }
 
 function operate(a, operator, b) {
@@ -31,100 +31,106 @@ function operate(a, operator, b) {
     }
 }
 
+function writeToDisplay(char) {
+    if(cuentaContainer.textContent.length < 9) {
+        cuentaContainer.textContent = cuentaContainer.textContent + char;
+    }
+}
+
 let cuentaContainer = document.querySelector('#cuentaContainer');
 
 const btnZero = document.querySelector('#btnZero');
 btnZero.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '0';
+    writeToDisplay('0');
 })
 const btnOne = document.querySelector('#btnOne');
 btnOne.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '1';
+    writeToDisplay('1');
 })
 const btnTwo = document.querySelector('#btnTwo');
 btnTwo.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '2';
+    writeToDisplay('2');
 })
 const btnThree = document.querySelector('#btnThree');
 btnThree.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '3';
+    writeToDisplay('3');
 })
 const btnFour = document.querySelector('#btnFour');
 btnFour.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '4';
+    writeToDisplay('4');
 })
 const btnFive = document.querySelector('#btnFive');
 btnFive.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '5';
+    writeToDisplay('5');
 })
 const btnSix = document.querySelector('#btnSix');
 btnSix.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '6';
+    writeToDisplay('6');
 })
 const btnSeven = document.querySelector('#btnSeven');
 btnSeven.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '7';
+    writeToDisplay('7');
 })
 const btnEight = document.querySelector('#btnEight');
 btnEight.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '8';
+    writeToDisplay('8');
 })
 const btnNine = document.querySelector('#btnNine');
 btnNine.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '9';
+    writeToDisplay('9');
 })
 const btnDivide = document.querySelector('#btnDivide');
 btnDivide.addEventListener('click', () => {
     if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
         btnEqual.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+        writeToDisplay(' / ');
     } else if(cuentaContainer.textContent.split(' ').length == 1) {
-    cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+    writeToDisplay(' / ');
     } else {
         btnErase.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+        writeToDisplay(' / ');
     }
 })
 const btnMultiply = document.querySelector('#btnMultiply');
 btnMultiply.addEventListener('click', () => {
     if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
         btnEqual.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+        writeToDisplay(' * ');
     } else if(cuentaContainer.textContent.split(' ').length == 1) {
-    cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+    writeToDisplay(' * ');
     } else {
         btnErase.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+        writeToDisplay(' * ');
     }
 })
 const btnSubstract = document.querySelector('#btnSubstract');
 btnSubstract.addEventListener('click', () => {
     if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
         btnEqual.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+        writeToDisplay(' - ');
     } else if(cuentaContainer.textContent.split(' ').length == 1) {
-    cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+    writeToDisplay(' - ');
     } else {
         btnErase.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+        writeToDisplay(' - ');
     }
 })
 const btnAdd = document.querySelector('#btnAdd');
 btnAdd.addEventListener('click', () => {
     if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
         btnEqual.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+        writeToDisplay(' + ');
     } else if(cuentaContainer.textContent.split(' ').length == 1) {
-    cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+    writeToDisplay(' + ');
     } else {
         btnErase.click();
-        cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+        writeToDisplay(' + ');
     }
     
 })
 const btnComma = document.querySelector('#btnComma');
 btnComma.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + '.';
+    writeToDisplay('.');
 })
 const btnClear = document.querySelector('#btnClear');
 btnClear.addEventListener('click', () => {

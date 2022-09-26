@@ -40,13 +40,6 @@ button {
     font-size: 34px;
 }
 
-#resultadoContainer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    height: 50%;
-}
-
 .anotherContainer{
     display: flex;
     flex-direction: row;
