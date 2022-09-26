@@ -74,23 +74,56 @@ btnNine.addEventListener('click', () => {
 })
 const btnDivide = document.querySelector('#btnDivide');
 btnDivide.addEventListener('click', () => {
+    if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
+        btnEqual.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+    } else if(cuentaContainer.textContent.split(' ').length == 1) {
     cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+    } else {
+        btnErase.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' / ';
+    }
 })
 const btnMultiply = document.querySelector('#btnMultiply');
 btnMultiply.addEventListener('click', () => {
+    if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
+        btnEqual.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+    } else if(cuentaContainer.textContent.split(' ').length == 1) {
     cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+    } else {
+        btnErase.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' * ';
+    }
 })
 const btnSubstract = document.querySelector('#btnSubstract');
 btnSubstract.addEventListener('click', () => {
+    if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
+        btnEqual.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+    } else if(cuentaContainer.textContent.split(' ').length == 1) {
     cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+    } else {
+        btnErase.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' - ';
+    }
 })
 const btnAdd = document.querySelector('#btnAdd');
 btnAdd.addEventListener('click', () => {
+    if(cuentaContainer.textContent.split(' ').filter(element => element).length === 3){
+        btnEqual.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+    } else if(cuentaContainer.textContent.split(' ').length == 1) {
     cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+    } else {
+        btnErase.click();
+        cuentaContainer.textContent = cuentaContainer.textContent + ' + ';
+    }
+    
 })
 const btnComma = document.querySelector('#btnComma');
 btnComma.addEventListener('click', () => {
-    cuentaContainer.textContent = cuentaContainer.textContent + ',';
+    cuentaContainer.textContent = cuentaContainer.textContent + '.';
 })
 const btnClear = document.querySelector('#btnClear');
 btnClear.addEventListener('click', () => {
@@ -99,11 +132,27 @@ btnClear.addEventListener('click', () => {
 const btnEqual = document.querySelector('#btnEqual');
 btnEqual.addEventListener('click', () => {
     
-    
-    let a = parseInt(cuentaContainer.textContent.split(' ')[0]);
+    let a = cuentaContainer.textContent.split(' ')[0];
+    a = a * 1;
     let operator = cuentaContainer.textContent.split(' ')[1];
-    let b = parseInt(cuentaContainer.textContent.split(' ')[2]);
+    let b = 1 * (cuentaContainer.textContent.split(' ')[2]);
     cuentaContainer.textContent = operate(a, operator, b);
     //console.log(a, operator, b);
     //console.log(cuentaContainer.textContent.split(' '));
 })
+
+const btnErase = document.querySelector('#btnErase');
+// Si hay un operador borra 3 caracteres. Intente usar regex pero incluso " " == /\s/ siempre retorna false
+btnErase.addEventListener('click', () => {
+    if(cuentaContainer.textContent.slice(-3) == " + ") {
+        cuentaContainer.textContent = cuentaContainer.textContent.slice(0, -3);
+    } else if(cuentaContainer.textContent.slice(-3) == " - ") {
+        cuentaContainer.textContent = cuentaContainer.textContent.slice(0, -3);
+    } else if(cuentaContainer.textContent.slice(-3) == " * ") {
+        cuentaContainer.textContent = cuentaContainer.textContent.slice(0, -3);
+    } else if(cuentaContainer.textContent.slice(-3) == " / ") {
+        cuentaContainer.textContent = cuentaContainer.textContent.slice(0, -3);
+    } else {
+        cuentaContainer.textContent = cuentaContainer.textContent.slice(0, -1);
+    }
+});
